@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+}
+
+.expense-tracker {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  color: #1a202c;
+  padding-top: 40px;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.container, .profile, .transactions {
+  width: 100%;
+  max-width: 480px;
+  min-width: 260px;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(95,39,205,0.12), 0 1.5px 8px rgba(0,0,0,0.03);
+  margin-bottom: 32px;
+  animation: fadeInUp 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.container {
+  padding: 40px 44px 32px 44px;
+}
+
+.profile {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 24px;
+}
+
+.profile-photo {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+  border: 3px solid #5f27cd;
+  background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 0 2px 12px rgba(95,39,205,0.10);
+}
+
+.sign-out-button {
+  border: none;
+  margin-top: 18px;
+  width: 100%;
+  background: linear-gradient(90deg, #ff5858 0%, #5f27cd 100%);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 14px 0;
+  text-decoration: none;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  box-shadow: 0 2px 8px rgba(239,68,68,0.10);
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.sign-out-button:hover {
+  background: linear-gradient(90deg, #5f27cd 0%, #ff5858 100%);
+  box-shadow: 0 4px 16px rgba(239,68,68,0.16);
+}
+.sign-out-button:active {
+  transform: scale(0.97);
+}
+
+.expense-tracker h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: #5f27cd;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+.balance {
+  background: #f1f5f9;
+  border-radius: 18px;
+  padding: 20px 22px;
+  box-shadow: 0 2px 8px rgba(95,39,205,0.06);
+  margin-bottom: 18px;
+}
+.balance h3 {
+  color: #64748b;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  margin: 0 0 6px 0;
+  font-size: 1.1rem;
+}
+.balance h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: #10b981;
+  font-weight: 800;
+}
+.summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  background: #f8fafc;
+  border-radius: 14px;
+  box-shadow: 0 1px 4px rgba(16,185,129,0.07);
+  padding: 12px 0;
+}
+.income, .expenses {
+  background: transparent;
+  box-shadow: none;
+  padding: 10px 0;
+  min-width: 120px;
+  text-align: center;
+}
+.income h4, .expenses h4 {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.income p {
+  color: #10b981;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0;
+}
+.expenses p {
+  color: #ef4444;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0;
+}
+.add-transaction {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+}
+.add-transaction input[type="text"],
+.add-transaction input[type="number"] {
+  background: #f8fafc;
+  border: 1.5px solid #e0e7ff;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(95,39,205,0.03);
+  padding: 12px 16px;
+}
+.add-transaction input[type="text"]:focus,
+.add-transaction input[type="number"]:focus {
+  border: 1.5px solid #5f27cd;
+  box-shadow: 0 2px 8px rgba(95,39,205,0.10);
+}
+.add-transaction input[type="radio"] {
+  accent-color: #5f27cd;
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+  vertical-align: middle;
+  transition: accent-color 0.2s;
+}
+.add-transaction label {
+  margin-left: 6px;
+  font-size: 1rem;
+  color: #5f27cd;
+  font-weight: 600;
+  vertical-align: middle;
+}
+.add-transaction button {
+  margin-top: 10px;
+  padding: 16px 0;
+  background: linear-gradient(90deg, #5f27cd 0%, #00b894 100%);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  box-shadow: 0 2px 8px rgba(95,39,205,0.08);
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+.add-transaction button:hover {
+  background: linear-gradient(90deg, #00b894 0%, #5f27cd 100%);
+  box-shadow: 0 4px 16px rgba(95,39,205,0.12);
+}
+.add-transaction button:active {
+  transform: scale(0.97);
+}
+.transactions {
+  margin-left: 0;
+  margin-top: 16px;
+  padding: 24px 32px;
+  width: 100%;
+  max-width: 480px;
+  min-width: 260px;
+  height: 480px;
+  overflow: auto;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(95,39,205,0.12), 0 1.5px 8px rgba(0,0,0,0.03);
+  border: none;
+  margin-bottom: 32px;
+  animation: fadeInUp 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.transactions h3 {
+  font-size: 1.4rem;
+  color: #5f27cd;
+  margin-bottom: 18px;
+  font-weight: 800;
+}
+.transactions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.transactions li {
+  background: #f8fafc;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  padding: 18px 20px;
+  box-shadow: 0 1px 4px rgba(95,39,205,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.18s;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+.transactions li:hover {
+  box-shadow: 0 4px 16px rgba(95,39,205,0.10);
+  transform: translateY(-2px) scale(1.02);
+}
+.transactions h4 {
+  margin: 0 0 6px 0;
+  font-size: 1.1rem;
+  color: #1a202c;
+  font-weight: 700;
+}
+.transactions p {
+  margin: 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.transactions label {
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.animated-fadein {
+  animation: fadeInUp 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 1200px) {
+  .expense-tracker {
+    max-width: 100vw;
+    padding-left: 0;
+    padding-right: 0;
+    gap: 24px;
+  }
+  .container, .profile, .transactions {
+    max-width: 98vw;
+  }
+}
+@media (max-width: 900px) {
+  .expense-tracker {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    max-width: 100vw;
+    gap: 0;
+  }
+  .container, .profile, .transactions {
+    min-width: 90vw;
+    max-width: 98vw;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .container {
+    margin-bottom: 18px;
+    padding: 28px 4vw 24px 4vw;
+  }
+  .profile {
+    margin-top: 0;
+    padding: 24px 4vw;
+    align-self: auto;
+  }
+  .transactions {
+    margin-top: 12px;
+    padding: 18px 4vw;
+    height: 340px;
+  }
+}
+@media (max-width: 600px) {
+  .container, .profile, .transactions {
+    min-width: 98vw;
+    max-width: 100vw;
+    width: 100%;
+    padding: 12px 2vw;
+    border-radius: 14px;
+    margin-bottom: 12px;
+  }
+  .transactions {
+    margin-top: 8px;
+    height: 220px;
+    padding: 10px 2vw;
+  }
+  .expense-tracker h1 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  .balance h2 {
+    font-size: 1rem;
+  }
+  .summary {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .income, .expenses {
+    min-width: unset;
+    padding: 8px 0;
+    font-size: 0.95rem;
+  }
+  .add-transaction input[type="text"],
+  .add-transaction input[type="number"] {
+    font-size: 0.95rem;
+    padding: 8px 10px;
+  }
+  .add-transaction button {
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+  .profile-photo {
+    width: 56px;
+    height: 56px;
+    font-size: 1.3rem;
+  }
+  .transactions h3 {
+    font-size: 1.1rem;
+  }
+  .transactions li {
+    padding: 10px 8px;
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 400px) {
+  .container, .profile, .transactions {
+    min-width: 100vw;
+    max-width: 100vw;
+    width: 100vw;
+    padding: 4px 0;
+    border-radius: 0;
+  }
+  .add-transaction input[type="text"],
+  .add-transaction input[type="number"] {
+    font-size: 0.85rem;
+    padding: 6px 4px;
+  }
+}
+@media (min-width: 1600px) {
+  .expense-tracker {
+    max-width: 1400px;
+    gap: 64px;
+  }
+  .container, .profile, .transactions {
+    max-width: 540px;
+  }
+}
